@@ -1,4 +1,4 @@
-package xyz.kail.demo.kafka.official;
+package xyz.kail.demo.kafka.official.hello;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
