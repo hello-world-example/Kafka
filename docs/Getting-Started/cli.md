@@ -36,7 +36,7 @@ $ bin/kafka-topics.sh --zookeeper localhost:2181 --list
 $ bin/kafka-topics.sh --zookeeper localhost:2181 --topic test --describe
 
 # 删除 topic
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --topic test--delete
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --topic test --delete
 
 ```
 
