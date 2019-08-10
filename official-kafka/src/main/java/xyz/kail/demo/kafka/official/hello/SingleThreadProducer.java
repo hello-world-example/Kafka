@@ -17,7 +17,7 @@ import static java.lang.System.out;
 
 @Slf4j
 public class SingleThreadProducer {
-    private static KafkaProducer<String, String> producer = KafkaProducerTool.defaultProducer("");
+    private static KafkaProducer<String, String> producer = KafkaProducerTool.defaultProducer("localhost:9092");
 
     private static ProducerRecord<String, String> newRecord(final String topicName, final Object data) {
 
@@ -93,7 +93,7 @@ public class SingleThreadProducer {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        executeBlocking("my-topic");
+        executeBlocking("test");
 
     }
 }

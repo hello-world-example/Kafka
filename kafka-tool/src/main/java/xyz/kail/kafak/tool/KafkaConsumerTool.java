@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.function.Function;
 
 /**
  * 消费者 工具
@@ -22,9 +23,12 @@ public class KafkaConsumerTool {
     /**
      * 消费者默认配置
      */
-    public static synchronized KafkaConsumer<String, String> defaultConsumer(String servers, String groupId) {
+    public static synchronized KafkaConsumer<String, String> defaultConsumer(String servers, String groupId, Function<Map<String, Object>, Map<String, Object>> func) {
         if (null == consumer) {
-            consumer = new KafkaConsumer<>(defaultConf(servers, groupId));
+
+            final Map<String, Object> conf = func.apply(defaultConf(servers, groupId));
+
+            consumer = new KafkaConsumer<>(conf);
         }
         return consumer;
     }

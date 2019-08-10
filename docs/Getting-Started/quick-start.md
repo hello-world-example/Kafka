@@ -6,11 +6,11 @@
 cd /opt/websuite
 
 # 下载 https://kafka.apache.org/downloads
-$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.1.1/kafka_2.12-2.1.1.tgz
+$ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz
 
 # 解压
-$ tar zxvf kafka_2.12-2.1.1.tgz
-$ cd kafka_2.12-2.1.1
+$ tar zxvf kafka_2.12-1.0.1.tgz
+$ cd kafka_2.12-1.0.1
 
 
 ```
