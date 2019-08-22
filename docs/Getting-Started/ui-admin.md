@@ -25,7 +25,7 @@ Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。
 ### Docker 方式安装
 
 ```bash
-# 拉取
+# 拉取 (支持到 2.0.0.2)
 $ docker pull solsson/kafka-manager
 
 # 运行
