@@ -28,7 +28,12 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/quick-start/</loc>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Cluster/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Quick-Start/</loc>
     <priority>0</priority>
   </url>
   

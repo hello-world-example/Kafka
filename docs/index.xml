@@ -15,7 +15,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Kafka/_sidebar/</guid>
-      <description> Getting-Started  快速开始 Kafka vs RockMQ UI 管理工具 Versions 常用命令  Conf  - Producer - Consumer  Monitor  JMX 指标   </description>
+      <description> Getting-Started  快速开始 Kafka vs RockMQ UI 管理工具 Versions 常用命令 伪集群  Conf  - Producer - Consumer  Monitor  JMX 指标   </description>
     </item>
     
     <item>
@@ -56,10 +56,20 @@
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/quick-start/</link>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Cluster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/quick-start/</guid>
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Cluster/</guid>
+      <description>伪集群安装  https://github.com/wurstmeister/kafka-docker
+ Docker Zookeeper $ docker pull zookeeper	$ docker run -d -p 2181:2181 --restart=always --name zookeeper zookeeper:latest Kafka $ docker pull wurstmeister/kafka # 192.168.1.5 是 宿主机 IP # Kafka02 $ docker run -d -p 9092:9092 -p 9292:9292 --restart=always \  --add-host kafka01.kail.xyz:192.168.1.5 \  --add-host kafka02.kail.xyz:192.168.1.5 \  --add-host kafka03.kail.xyz:192.168.1.5 \  -h kafka02.kail.xyz \  -e &amp;#34;KAFKA_ZOOKEEPER_CONNECT=192.168.1.5:2181/kafka&amp;#34; \  -e &amp;#34;KAFKA_LISTENERS=PLAINTEXT://:9092&amp;#34; \  -e &amp;#34;KAFKA_BROKER_ID=2&amp;#34; \  -e &amp;#34;KAFKA_JMX_OPTS=-Dcom.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Quick-Start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Quick-Start/</guid>
       <description>快速开始 安装 cd /opt/websuite # 下载 https://kafka.apache.org/downloads $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz # 解压 $ tar zxvf kafka_2.12-1.0.1.tgz $ cd kafka_2.12-1.0.1 启动 Kafka # 先启动 Zookeeper $ bin/zookeeper-server-start.sh config/zookeeper.properties # 启动 Kafka $ bin/kafka-server-start.sh config/server.properties 创建 Topic # 创建一个 test 主题，包含 1个分区 和 1个副本 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test #&amp;gt; Created topic &amp;#34;test&amp;#34;. # 查看 topic 列表 $ bin/kafka-topics.sh --list --zookeeper localhost:2181 #&amp;gt; test 发送消息 # 发送消息 $ bin/kafka-console-producer.</description>
     </item>
     

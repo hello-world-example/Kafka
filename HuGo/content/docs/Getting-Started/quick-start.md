@@ -2,7 +2,7 @@
 
 ## 安装
 
-```bash
+```bash 
 cd /opt/websuite
 
 # 下载 https://kafka.apache.org/downloads
@@ -11,8 +11,6 @@ $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz
 # 解压
 $ tar zxvf kafka_2.12-1.0.1.tgz
 $ cd kafka_2.12-1.0.1
-
-
 ```
 
 ## 启动 Kafka

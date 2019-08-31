@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 public class KafkaAdminClient {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        final AdminClient adminClient = KafkaAdminTool.defaultAdmin("172.16.2.170:9092", conf -> conf);
+        final AdminClient adminClient = KafkaAdminTool.defaultAdmin("127.0.0.1:9092", conf -> conf);
 
         /*
          * 集群
@@ -41,7 +41,7 @@ public class KafkaAdminClient {
          * Describe Topic
          */
         System.out.println("========= Describe Topic");
-        final Map<String, TopicDescription> topicDescriptionMap = adminClient.describeTopics(Collections.singletonList("info-log")).all().get();
+        final Map<String, TopicDescription> topicDescriptionMap = adminClient.describeTopics(Collections.singletonList("test")).all().get();
         topicDescriptionMap.forEach((k, v) -> {
             System.out.println(k);
             System.out.println("    " + v.toString());
