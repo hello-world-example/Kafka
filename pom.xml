@@ -15,6 +15,7 @@
 
         <module>official-kafka</module>
         <module>spring-kafka</module>
+        <module>kafka-admin</module>
     </modules>
 
 

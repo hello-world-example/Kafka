@@ -8,7 +8,7 @@ import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.errors.AuthorizationException;
 import org.apache.kafka.common.errors.OutOfOrderSequenceException;
 import org.apache.kafka.common.errors.ProducerFencedException;
-import xyz.kail.kafak.tool.KafkaProducerTool;
+import xyz.kail.kafka.tool.KafkaProducerTool;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;

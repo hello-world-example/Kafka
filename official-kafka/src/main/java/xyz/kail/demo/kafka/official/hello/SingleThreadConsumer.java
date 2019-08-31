@@ -5,7 +5,7 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import xyz.kail.kafak.tool.KafkaConsumerTool;
+import xyz.kail.kafka.tool.KafkaConsumerTool;
 
 import java.util.Collections;
 import java.util.Date;

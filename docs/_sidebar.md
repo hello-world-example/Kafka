@@ -7,5 +7,6 @@
 * Conf
   * [- Producer](Conf/Producer.md)
   * [- Consumer](Conf/Consumer.md) 
-* APIs
+* Monitor
+  * [JMX 指标](Monitor/jmx-metrics.md)
 
