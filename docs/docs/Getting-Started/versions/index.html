@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Versions | Kafka</title>
+
+
+<link rel="stylesheet" href="/Kafka/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
+
+
+
+
+<link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://hello-world-example.github.io/Kafka/">Kafka</a>
+</h2>
+
+
+
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2fKafka\2f docs\2fGetting-Started\2fversions\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><strong>Getting-Started</strong>
+
+<ul>
+<li><a href="/Kafka/docs/Getting-Started/quick-start/">快速开始</a></li>
+<li><a href="/Kafka/docs/Getting-Started/vs/">Kafka vs RockMQ</a></li>
+<li><a href="/Kafka/docs/Getting-Started/ui-admin/">UI 管理工具</a></li>
+<li><a href="/Kafka/docs/Getting-Started/versions/">Versions</a></li>
+<li><a href="/Kafka/docs/Getting-Started/cli/">常用命令</a></li>
+</ul></li>
+<li><strong>Conf</strong>
+
+<ul>
+<li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+</ul></li>
+<li><strong>Monitor</strong>
+
+<ul>
+<li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/Kafka/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Versions</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="版本信息">版本信息</h1>
+
+<h2 id="关注的版本">关注的版本</h2>
+
+<ul>
+<li>消息格式 v0
+
+<ul>
+<li><del>0.7：上古版本</del></li>
+<li><del>0.8：副本机制</del></li>
+<li><del>0.9：2015.11，增加权限和认证，不建议使用 Consumer API</del></li>
+</ul></li>
+<li>消息格式 v1
+
+<ul>
+<li><del>0.10：引入 Kafka Stream</del></li>
+</ul></li>
+<li>消息格式 v2
+
+<ul>
+<li>0.11：幂等性 Producer API 以及事务（Transaction） API</li>
+<li><strong>0.11.0.2</strong>：spring-kafka v1 最新版依赖的最新版本</li>
+<li>0.11.0.3：<strong>0.11.</strong>* 最后的版本</li>
+<li>1.0：</li>
+<li><strong>1.0.1</strong>：当前 Broker 的版本</li>
+<li>1.0.2：<strong>1.0.</strong>* 最后的版本</li>
+<li>2.0：Stream 的改进</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/u013256816/article/details/80300225">一文看懂Kafka消息格式的演变</a></li>
+<li><a href="https://www.cnblogs.com/yinzhengjie/p/9986554.html">Kafka各个版本差异汇总</a> / <a href="http://kafka.apache.org/documentation/#upgrade">Upgrading From Previous Versions</a></li>
+<li></li>
+<li>1.0.1 : <a href="https://www.orchome.com/874">https://www.orchome.com/874</a></li>
+<li>1.1.0: <a href="https://www.orchome.com/1036">https://www.orchome.com/1036</a></li>
+<li>2.0.1: <a href="https://www.orchome.com/1364">https://www.orchome.com/1364</a></li>
+<li>2.1.0: <a href="https://www.orchome.com/1377">https://www.orchome.com/1377</a></li>
+</ul>
+</blockquote>
+
+<h2 id="spring-kafka">Spring Kafka</h2>
+
+<table>
+<thead>
+<tr>
+<th>更新时间</th>
+<th>Spring Kafka</th>
+<th>Spring</th>
+<th>Kafka</th>
+<th>Kafka 可升级</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Sep, 2016</td>
+<td>1.0.4.RELEASE</td>
+<td>4.2.6.RELEASE</td>
+<td>0.9.0.1</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Jan, 2019</td>
+<td><strong>1.3.9.RELEASE</strong></td>
+<td><strong>4.3.22.RELEASE</strong></td>
+<td>0.11.0.2</td>
+<td>- 0.11.0.3</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Sep, 2017</td>
+<td>2.0.0.RELEASE</td>
+<td>5.0.0.RELEASE</td>
+<td>0.11.0.0</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Jan, 2019</td>
+<td>2.1.12.RELEASE</td>
+<td>5.0.12.RELEASE</td>
+<td>1.0.2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Jun, 2019</td>
+<td>2.2.7.RELEASE</td>
+<td>5.1.7.RELEASE</td>
+<td>2.0.1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a href="https://github.com/hello-world-example/Kafka/commit/5168e82f667ac239c9a8c1ae950cc6857d7f0f5c" title='Last modified Aug 31, 2019 by kaibin.yang' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" alt="Changed" /> Aug 31, 2019
+    </a>
+  </div>
+  
+  
+  <div>
+    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/versions.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#版本信息">版本信息</a>
+<ul>
+<li><a href="#关注的版本">关注的版本</a></li>
+<li><a href="#spring-kafka">Spring Kafka</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka</title>
+    <link>https://hello-world-example.github.io/Kafka/</link>
+    <description>Recent content on Kafka</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/_sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/_sidebar/</guid>
+      <description> Getting-Started  快速开始 Kafka vs RockMQ UI 管理工具 Versions 常用命令  Conf  - Producer - Consumer  Monitor  JMX 指标   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Conf/Commons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Conf/Commons/</guid>
+      <description>   属性 默认值 描述     request.timeout.ms                </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Conf/Consumer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Conf/Consumer/</guid>
+      <description> Consumer 端 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Conf/Producer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Conf/Producer/</guid>
+      <description> Producer 端 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/cli/</guid>
+      <description>常用命令 启动 &amp;amp; 关闭 # 先启动 Zookeeper $ nohup bin/zookeeper-server-start.sh config/zookeeper.properties &amp;amp; # 启动 Kafka $ nohup bin/kafka-server-start.sh config/server.properties &amp;amp; # 关闭 Kafka $ bin/kafka-server-stop.sh # 关闭 Zookeeper $ bin/zookeeper-server-stop.sh Topic # 创建一个 test 主题，包含 1个分区 和 1个副本 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test #&amp;gt; Created topic &amp;#34;test&amp;#34;. # 查看 topic 列表 $ bin/kafka-topics.sh --zookeeper localhost:2181 --list #&amp;gt; test # 查看 topic 信息 $ bin/kafka-topics.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/quick-start/</guid>
+      <description>快速开始 安装 cd /opt/websuite # 下载 https://kafka.apache.org/downloads $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz # 解压 $ tar zxvf kafka_2.12-1.0.1.tgz $ cd kafka_2.12-1.0.1 启动 Kafka # 先启动 Zookeeper $ bin/zookeeper-server-start.sh config/zookeeper.properties # 启动 Kafka $ bin/kafka-server-start.sh config/server.properties 创建 Topic # 创建一个 test 主题，包含 1个分区 和 1个副本 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test #&amp;gt; Created topic &amp;#34;test&amp;#34;. # 查看 topic 列表 $ bin/kafka-topics.sh --list --zookeeper localhost:2181 #&amp;gt; test 发送消息 # 发送消息 $ bin/kafka-console-producer.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/ui-admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/ui-admin/</guid>
+      <description> UI 管理工具 Kafka Tool  官方： http://www.kafkatool.com/download.html
+注：Kafka Tool 仅供个人使用，不得用于商业目的
+ Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。
+使用方式详见：http://www.kafkatool.com/features.html
+yahoo/kafka-manager  官方： https://github.com/yahoo/kafka-manager
+Releases：https://github.com/yahoo/kafka-manager/releases
+ 版本最高支持到 Kafka 0.9.0.1
+Docker 方式安装 # 拉取 (支持到 2.0.0.2) $ docker pull solsson/kafka-manager # 运行 $ docker run -d -p 9000:9000 -e &amp;#34;ZK_HOSTS=192.168.1.7:2181&amp;#34; --restart=always --name kafka-manager solsson/kafka-manager</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/versions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/versions/</guid>
+      <description>版本信息 关注的版本  消息格式 v0  0.7：上古版本 0.8：副本机制 0.9：2015.11，增加权限和认证，不建议使用 Consumer API  消息格式 v1  0.10：引入 Kafka Stream  消息格式 v2  0.11：幂等性 Producer API 以及事务（Transaction） API 0.11.0.2：spring-kafka v1 最新版依赖的最新版本 0.11.0.3：0.11.* 最后的版本 1.0： 1.0.1：当前 Broker 的版本 1.0.2：1.0.* 最后的版本 2.0：Stream 的改进     一文看懂Kafka消息格式的演变 Kafka各个版本差异汇总 / Upgrading From Previous Versions  1.0.1 : https://www.orchome.com/874 1.1.0: https://www.orchome.com/1036 2.0.1: https://www.orchome.com/1364 2.1.0: https://www.orchome.com/1377   Spring Kafka    更新时间 Spring Kafka Spring Kafka Kafka 可升级     Sep, 2016 1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/vs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/vs/</guid>
+      <description>Kafka vs RockMQ NameSvr vs. Zookeeper  Kafka 通过 Zookeeper 来进行协调 RocketMQ 通过自身的 namesrv 进行协调。
+ kafka 在具备选举功能，在 Kafka 里面，Master/Slave 的选举，有2步：
+ 第1步，先通过 ZK 在所有机器中，选举出一个 KafkaController； 第2步，再由这个 Controller，决定每个 partition 的 Master 是谁，Slave 是谁。 Kafka 某个 partition 的 master 挂了，该 partition 对应的某个slave会升级为主对外提供服务。
+  RocketMQ不具备选举，Master/Slave的角色也是固定的。
+ 当一个Master挂了之后，你可以写到其他Master上，但不能让一个Slave切换成Master。 那么RocketMq是如何实现高可用的呢？ rocketMq的所有broker节点的角色都是一样，上面分配的topic和对应的queue的数量也是一样的，MQ 只能保证当一个broker挂了，把原本写到这个broker的请求迁移到其他broker上面，而并不是这个broker对应的slave升级为主。
+ RocketMQ 在协调节点的设计上显得更加轻量，用了另外一种方式解决高可用的问题，思路也是可以借鉴的。   吞吐量  Kafka 在消息存储过程中会根据 topic 和 partition 的数量创建物理文件，也就是说创建一个 topic 并指定了 3个 partition，那么就会有3个物理文件目录，也就说说 partition 的数量和对应的物理文件是一一对应的 RocketMQ 在消息存储方式就一个物流问题，也就说传说中的 commitLog，RocketMQ 的 queue 的数量其实是在 consumeQueue 里面体现的，在真正存储消息的 commitLog 其实就只有一个物理文件</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Monitor/jmx-metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Monitor/jmx-metrics/</guid>
+      <description> JMX 指标   检查 Broker 端口| 进程 查看 server.log 日志    BytesIn/BytesOut：即 Broker 端每秒入站和出站字节数。你要确保这组值不要接近你的网络带宽，否则这通常都表示网卡已被“打满”，很容易出现网络丢包的情形。 NetworkProcessorAvgIdlePercent：即网络线程池线程平均的空闲比例。通常来说，你应该确保这个 JMX 值长期大于 30%。如果小于这个值，就表明你的网络线程池非常繁忙，你需要通过增加网络线程数或将负载转移给其他服务器的方式，来给该 Broker 减负。
+ RequestHandlerAvgIdlePercent：即 I/O 线程池线程平均的空闲比例。同样地，如果该值长期小于 30%，你需要调整 I/O 线程池的数量，或者减少 Broker 端的负载。
+ UnderReplicatedPartitions：即未充分备份的分区数。所谓未充分备份，是指并非所有的 Follower 副本都和 Leader 副本保持同步。一旦出现了这种情况，通常都表明该分区有可能会出现数据丢失。因此，这是一个非常重要的 JMX 指标。
+ ISRShrink/ISRExpand：即 ISR 收缩和扩容的频次指标。如果你的环境中出现 ISR 中副本频繁进出的情形，那么这组值一定是很高的。这时，你要诊断下副本频繁进出 ISR 的原因，并采取适当的措施。
+ ActiveControllerCount：即当前处于激活状态的控制器的数量。正常情况下，Controller 所在 Broker 上的这个 JMX 指标值应该是 1，其他 Broker 上的这个值是 0。如果你发现存在多台 Broker 上该值都是 1 的情况，一定要赶快处理，处理方式主要是查看网络连通性。这种情况通常表明集群出现了脑裂。脑裂问题是非常严重的分布式故障，Kafka 目前依托 ZooKeeper 来防止脑裂。但一旦出现脑裂，Kafka 是无法保证正常工作的。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/TD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/TD/</guid>
+      <description>TODO Monitoring Kafka Consumer Offsets : https://blog.godatadriven.com/monitoring-kafka-consumer-lag</description>
+    </item>
+    
+  </channel>
+</rss>

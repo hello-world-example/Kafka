@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.57.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kafka | Kafka</title>
+<title>Ui Admin | Kafka</title>
 
 
 <link rel="stylesheet" href="/Kafka/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
@@ -16,7 +15,6 @@
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
 
 
-<link rel="alternate" type="application/rss+xml" href="https://hello-world-example.github.io/Kafka/index.xml" title="Kafka" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -46,7 +44,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   <style>
-  nav ul a[href$="\2fKafka\2f "] {
+  nav ul a[href$="\2fKafka\2f docs\2fGetting-Started\2fui-admin\2f "] {
       color: #004ed0;
   }
   </style>
@@ -100,35 +98,42 @@ https://github.com/alex-shpak/hugo-book
   <label for="menu-control">
     <img src="/Kafka/svg/menu.svg" alt="Menu" />
   </label>
-  <strong>Kafka</strong>
+  <strong>Ui Admin</strong>
 </header>
 
       
-<article class="markdown"><ul>
-<li>官网
+<article class="markdown">
 
-<ul>
-<li><a href="https://kafka.apache.org/">Apache Kafka</a></li>
-</ul></li>
-<li>中文社区
+<h1 id="ui-管理工具">UI 管理工具</h1>
 
-<ul>
-<li><a href="http://kafka.apachecn.org/">ApacheCn Kafka</a></li>
-</ul></li>
-<li>其他资源
+<h2 id="kafka-tool">Kafka Tool</h2>
 
-<ul>
-<li><a href="http://www.raincent.com/content-85-10956-1.html">kafka架构与原理</a></li>
-<li><a href="http://ifeve.com/kafka-1/">《KAFKA官方文档》入门指南</a></li>
-</ul></li>
-<li>知名博主
+<blockquote>
+<p>官方： <a href="http://www.kafkatool.com/download.html">http://www.kafkatool.com/download.html</a></p>
 
-<ul>
-<li>胡夕：<a href="https://www.cnblogs.com/huxi2b/">https://www.cnblogs.com/huxi2b/</a></li>
-<li>《Apache Kafka实战》 作者</li>
-</ul></li>
-</ul>
-</article>
+<p>注：Kafka Tool 仅供个人使用，不得用于商业目的</p>
+</blockquote>
+
+<p>Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。</p>
+
+<p>使用方式详见：<a href="http://www.kafkatool.com/features.html">http://www.kafkatool.com/features.html</a></p>
+
+<h2 id="yahoo-kafka-manager">yahoo/kafka-manager</h2>
+
+<blockquote>
+<p>官方： <a href="https://github.com/yahoo/kafka-manager">https://github.com/yahoo/kafka-manager</a></p>
+
+<p>Releases：<a href="https://github.com/yahoo/kafka-manager/releases">https://github.com/yahoo/kafka-manager/releases</a></p>
+</blockquote>
+
+<p>版本最高支持到 Kafka 0.9.0.1</p>
+
+<h3 id="docker-方式安装">Docker 方式安装</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 拉取 (支持到 2.0.0.2)</span>
+$ docker pull solsson/kafka-manager
+
+<span style="color:#75715e"># 运行</span>
+$ docker run -d -p <span style="color:#ae81ff">9000</span>:9000 -e <span style="color:#e6db74">&#34;ZK_HOSTS=192.168.1.7:2181&#34;</span> --restart<span style="color:#f92672">=</span>always --name kafka-manager solsson/kafka-manager</code></pre></div></article>
 
       
 <div class="book-footer justify-between">
@@ -142,7 +147,7 @@ https://github.com/alex-shpak/hugo-book
   
   
   <div>
-    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/_index.md" target="_blank" rel="noopener">
+    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/ui-admin.md" target="_blank" rel="noopener">
       <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
     </a>
   </div>
@@ -155,6 +160,21 @@ https://github.com/alex-shpak/hugo-book
 
     
   
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#ui-管理工具">UI 管理工具</a>
+<ul>
+<li><a href="#kafka-tool">Kafka Tool</a></li>
+<li><a href="#yahoo-kafka-manager">yahoo/kafka-manager</a>
+<ul>
+<li><a href="#docker-方式安装">Docker 方式安装</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
 
 
 
