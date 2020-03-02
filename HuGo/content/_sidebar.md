@@ -14,4 +14,5 @@ headless: true
   * [- Consumer]({{< relref "/docs/Conf/Consumer.md" >}}) 
 * **Monitor**
   * [JMX 指标]({{< relref "/docs/Monitor/jmx-metrics.md" >}})
+* **Connect**
 
