@@ -7,7 +7,7 @@
 <title>Quick Start | Kafka</title>
 
 
-<link rel="stylesheet" href="/Kafka/book.min.6c7317d2e8552a0ac3ea8fd4ba500c3dfb1cc9c74e7afd73eee6d729751fad30.css">
+<link rel="stylesheet" href="/Kafka/book.min.7f520bfa40fe705d4ffa1ffe31f874ecce401870d59a82cdffa2b5217cf1ad08.css">
 
 
 
@@ -51,26 +51,27 @@ https://github.com/alex-shpak/hugo-book
 
 <ul>
 <li><strong>Getting-Started</strong>
-
 <ul>
 <li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
-<li><a href="/Kafka/docs/Getting-Started/vs/">Kafka vs RockMQ</a></li>
-<li><a href="/Kafka/docs/Getting-Started/ui-admin/">UI 管理工具</a></li>
-<li><a href="/Kafka/docs/Getting-Started/versions/">Versions</a></li>
-<li><a href="/Kafka/docs/Getting-Started/cli/">常用命令</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Cluster/">伪集群</a></li>
-</ul></li>
+<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">Kafka vs RockMQ</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Ui-Admin/">UI 管理工具</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+</ul>
+</li>
 <li><strong>Conf</strong>
-
 <ul>
 <li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
 <li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
-</ul></li>
+</ul>
+</li>
 <li><strong>Monitor</strong>
-
 <ul>
 <li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
-</ul></li>
+</ul>
+</li>
+<li><strong>Connect</strong></li>
 </ul>
 
 
@@ -103,10 +104,7 @@ https://github.com/alex-shpak/hugo-book
 </header>
 
       
-<article class="markdown">
-
-<h1 id="快速开始">快速开始</h1>
-
+<article class="markdown"><h1 id="快速开始">快速开始</h1>
 <h2 id="安装">安装</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/websuite
 
@@ -115,36 +113,38 @@ $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz
 
 <span style="color:#75715e"># 解压</span>
 $ tar zxvf kafka_2.12-1.0.1.tgz
-$ cd kafka_2.12-1.0.1</code></pre></div>
-<h2 id="启动-kafka">启动 Kafka</h2>
+$ cd kafka_2.12-1.0.1
+</code></pre></div><h2 id="启动-kafka">启动 Kafka</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 先启动 Zookeeper</span>
 $ bin/zookeeper-server-start.sh config/zookeeper.properties
 
 <span style="color:#75715e"># 启动 Kafka</span>
-$ bin/kafka-server-start.sh config/server.properties</code></pre></div>
-<h2 id="创建-topic">创建 Topic</h2>
+$ bin/kafka-server-start.sh config/server.properties
+</code></pre></div><h2 id="创建-topic">创建 Topic</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 创建一个 test 主题，包含 1个分区 和 1个副本</span>
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor <span style="color:#ae81ff">1</span> --partitions <span style="color:#ae81ff">1</span> --topic test
 <span style="color:#75715e">#&gt; Created topic &#34;test&#34;.</span>
 
 <span style="color:#75715e"># 查看 topic 列表</span>
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
-<span style="color:#75715e">#&gt; test</span></code></pre></div>
-<h2 id="发送消息">发送消息</h2>
+<span style="color:#75715e">#&gt; test</span>
+</code></pre></div><h2 id="发送消息">发送消息</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 发送消息</span>
 $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 
 &gt;asd
 &gt;123
-&gt;</code></pre></div>
-<h2 id="接收消息">接收消息</h2>
+&gt;
+
+
+</code></pre></div><h2 id="接收消息">接收消息</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 接收消息</span>
 $ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 
 asd
-<span style="color:#ae81ff">123</span></code></pre></div>
-<h2 id="read-more">Read More</h2>
+<span style="color:#ae81ff">123</span>
 
+</code></pre></div><h2 id="read-more">Read More</h2>
 <ul>
 <li>官方文档 <a href="http://kafka.apache.org/quickstart">Quickstart</a></li>
 <li>中文社区 <a href="http://kafka.apachecn.org/quickstart.html">Quickstart</a></li>
@@ -172,17 +172,14 @@ asd
 
   <aside class="book-toc level-3 fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#快速开始">快速开始</a>
-<ul>
-<li><a href="#安装">安装</a></li>
-<li><a href="#启动-kafka">启动 Kafka</a></li>
-<li><a href="#创建-topic">创建 Topic</a></li>
-<li><a href="#发送消息">发送消息</a></li>
-<li><a href="#接收消息">接收消息</a></li>
-<li><a href="#read-more">Read More</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#启动-kafka">启动 Kafka</a></li>
+    <li><a href="#创建-topic">创建 Topic</a></li>
+    <li><a href="#发送消息">发送消息</a></li>
+    <li><a href="#接收消息">接收消息</a></li>
+    <li><a href="#read-more">Read More</a></li>
+  </ul>
 </nav>
   </aside>
 

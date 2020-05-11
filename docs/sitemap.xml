@@ -1,74 +1,82 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/_sidebar/</loc>
-    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/Conf/Commons/</loc>
-    <priority>0</priority>
+    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/Conf/Consumer/</loc>
-    <priority>0</priority>
+    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/Conf/Producer/</loc>
-    <priority>0</priority>
+    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/cli/</loc>
-    <priority>0</priority>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Connect/README/</loc>
+    <lastmod>2020-03-02T18:22:33+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Cluster/</loc>
-    <priority>0</priority>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Cli-Quick/</loc>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Docker-Cluster/</loc>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Quick-Start/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/ui-admin/</loc>
-    <priority>0</priority>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Ui-Admin/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/versions/</loc>
-    <priority>0</priority>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Versions/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/vs/</loc>
-    <priority>0</priority>
+    <loc>https://hello-world-example.github.io/Kafka/docs/Getting-Started/VS.Rocket/</loc>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/Monitor/jmx-metrics/</loc>
-    <priority>0</priority>
+    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/TD/</loc>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Kafka/TD/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/docs/</loc>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Kafka/</loc>
-    <lastmod>2019-08-31T19:17:07+08:00</lastmod>
+    <lastmod>2020-05-11T10:21:24+08:00</lastmod>
   </url>
   
 </urlset>
