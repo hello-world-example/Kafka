@@ -1,5 +1,26 @@
 # 常用命令
 
+## 基础
+
+### 通用
+
+```bash
+# --help 查看帮助
+./kafka-topics.sh --help
+```
+
+### bootstrap-server OR zookeeper
+
+- `--bootstrap-server` 是趋势，
+- `--zookeeper` 直接操作 ZK，跳过权限，不太建议
+
+|                           | --bootstrap-server | --zookeeper |
+| ------------------------: | :----------------: | :---------: |
+|           kafka-topics.sh |         ✔️          |    ~~✔️~~    |
+|          kafka-configs.sh |                    |      ✔️      |
+|  kafka-consumer-groups.sh |         ✔️          |             |
+| kafka-console-consumer.sh |         ✔️          |             |
+
 
 
 
@@ -24,20 +45,24 @@ $ bin/zookeeper-server-stop.sh
 ## Topic
 
 ```bash
-# 创建一个 test 主题，包含 1个分区 和 1个副本
-$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
-#> Created topic "test".
+# 创建一个 test 主题，包含 1个分区 和 1个副本 --zookeeper localhost:2181
+$ bin/kafka-topics.sh --bootstrap-server localhost:9092 \
+  --create \
+  --partitions 1 \
+  --replication-factor 1 \
+  --topic topic-test 
+  
+#> Created topic "topic-test ".
 
 # 查看 topic 列表
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --list
-#> test
+$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+#> topic-test 
 
 # 查看 topic 信息
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --topic test --describe
+$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --describe
 
 # 删除 topic
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --topic test --delete
-
+$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --delete
 ```
 
 

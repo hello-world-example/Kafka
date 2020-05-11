@@ -16,6 +16,7 @@
         <dependency>
             <groupId>Kafka</groupId>
             <artifactId>kafka-tool</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>

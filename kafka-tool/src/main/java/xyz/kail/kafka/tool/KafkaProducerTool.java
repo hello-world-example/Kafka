@@ -52,6 +52,12 @@ public class KafkaProducerTool {
         // 值的序列化方式
         conf.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
+        // 幂等性
+//        conf.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
+        // 确保副本复制完成
+        conf.put(ProducerConfig.ACKS_CONFIG, "all");
+
+
         return conf;
     }
 

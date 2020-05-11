@@ -5,11 +5,16 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.KafkaException;
+import org.apache.kafka.common.Metric;
+import org.apache.kafka.common.MetricName;
+import org.apache.kafka.common.PartitionInfo;
 import org.apache.kafka.common.errors.AuthorizationException;
 import org.apache.kafka.common.errors.OutOfOrderSequenceException;
 import org.apache.kafka.common.errors.ProducerFencedException;
 import xyz.kail.kafka.tool.KafkaProducerTool;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -17,6 +22,7 @@ import static java.lang.System.out;
 
 @Slf4j
 public class SingleThreadProducer {
+
     private static KafkaProducer<String, String> producer = KafkaProducerTool.defaultProducer("localhost:9092");
 
     private static ProducerRecord<String, String> newRecord(final String topicName, final Object data) {
@@ -41,7 +47,6 @@ public class SingleThreadProducer {
 
 
     }
-
 
     public static void executeBlocking(final String topicName) throws ExecutionException, InterruptedException {
 
@@ -90,8 +95,11 @@ public class SingleThreadProducer {
     }
 
 
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+        Map<MetricName, ? extends Metric> metrics = producer.metrics();
+        List<PartitionInfo> topic = producer.partitionsFor("topic");
+
 
         executeBlocking("test");
 
