@@ -54,7 +54,7 @@ $ bin/kafka-topics.sh --bootstrap-server localhost:9092 \
   
 #> Created topic "topic-test ".
 
-# 查看 topic 列表
+# 查看 topic 列表 --zookeeper localhost:2181
 $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 #> topic-test 
 
@@ -63,6 +63,8 @@ $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --des
 
 # 删除 topic
 $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --delete
+# 删除主题数据
+$ bin/kafka-configs.sh --zookeeper localhost:2181 --alter --entity-type topics --entity-name topic-giraffe --add-config retention.ms=3000
 ```
 
 

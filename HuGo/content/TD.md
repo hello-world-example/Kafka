@@ -15,7 +15,6 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --topic exception-log --describe
 
 bin/kafka-configs.sh --zookeeper localhost:2181 --entity-type brokers --entity-name 0 --describe
 
-      
 {"version":1,"partitions":[{"topic":"exception-log","partition":0,"replicas":[1,0]}]}
 bin/kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file /opt/websuite/kafka/replication.json --execute
 
@@ -26,3 +25,13 @@ bin/kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-
 apache kafka系列之在zookeeper中存储结构： https://blog.csdn.net/lizhitao/article/details/23744675
 https://uohzoaix.github.io/studies//2016/01/13/kafka%E9%9B%86%E7%BE%A4%E4%B9%8B%E7%A1%AE%E5%AE%9Aleader/  Kafka 如何手动触发重新选举
 https://johng.cn/update-kafka-topic-replicas/
+
+
+
+./bin/kafka-configs.sh --zookeeper s01.soa-solr.ttp.wx:2181 --alter --entity-type topics --entity-name topic-giraffe --add-config retention.ms=3000
+
+
+
+```
+bin/kafka-console-consumer.sh --topic __consumer_offsets --zookeeper s01.soa-solr.ttp.wx:2181 --formatter "kafka.coordinator.GroupMetadataManager\$OffsetsMessageFormatter" --consumer.config /opt/config/kafka/consumer.properties --from-beginning
+```
