@@ -53,8 +53,7 @@ https://github.com/alex-shpak/hugo-book
 <li><strong>Getting-Started</strong>
 <ul>
 <li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
-<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">Kafka vs RockMQ</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Ui-Admin/">UI 管理工具</a></li>
+<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
 <li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
 <li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
 <li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
@@ -69,6 +68,7 @@ https://github.com/alex-shpak/hugo-book
 <li><strong>Monitor</strong>
 <ul>
 <li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li><a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
 <li><strong>Connect</strong></li>
@@ -167,7 +167,7 @@ $ bin/kafka-topics.sh --bootstrap-server localhost:9092 <span style="color:#ae81
   
 <span style="color:#75715e">#&gt; Created topic &#34;topic-test &#34;.</span>
 
-<span style="color:#75715e"># 查看 topic 列表</span>
+<span style="color:#75715e"># 查看 topic 列表 --zookeeper localhost:2181</span>
 $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 <span style="color:#75715e">#&gt; topic-test</span> 
 
@@ -176,6 +176,8 @@ $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --des
 
 <span style="color:#75715e"># 删除 topic</span>
 $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-test --delete
+<span style="color:#75715e"># 删除主题数据</span>
+$ bin/kafka-configs.sh --zookeeper localhost:2181 --alter --entity-type topics --entity-name topic-giraffe --add-config retention.ms<span style="color:#f92672">=</span><span style="color:#ae81ff">3000</span>
 </code></pre></div><h2 id="group">Group</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Note: This will only show information about consumers that use ZooKeeper (not those using the Java consumer API)</span>
 <span style="color:#75715e"># $ bin/kafka-consumer-groups.sh --zookeeper localhost:2181 --list</span>               
@@ -245,8 +247,8 @@ $ bin/kafka-configs.sh --zookeeper localhost:2181 --entity-type topics --entity-
   
   <div>
     
-    <a href="https://github.com/hello-world-example/Kafka/commit/08e93390df50656de5880b4b4898fb4382188147" title='Last modified May 11, 2020 by 杨凯彬' target="_blank" rel="noopener">
-      <img src="/Kafka/svg/calendar.svg" alt="Changed" /> May 11, 2020
+    <a href="https://github.com/hello-world-example/Kafka/commit/350196c464ef52d84787c3ec20dd34ff7f70a0fd" title='Last modified Jul 9, 2020 by kaibin.yang' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" alt="Changed" /> Jul 9, 2020
     </a>
   </div>
   

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ui Admin | Kafka</title>
+
+
+<link rel="stylesheet" href="/Kafka/book.min.7f520bfa40fe705d4ffa1ffe31f874ecce401870d59a82cdffa2b5217cf1ad08.css">
+
+
+
+
+<link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://hello-world-example.github.io/Kafka/">Kafka</a>
+</h2>
+
+
+
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2fKafka\2f docs\2fMonitor\2fUi-Admin\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><strong>Getting-Started</strong>
+<ul>
+<li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
+<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+</ul>
+</li>
+<li><strong>Conf</strong>
+<ul>
+<li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+</ul>
+</li>
+<li><strong>Monitor</strong>
+<ul>
+<li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li><a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
+</ul>
+</li>
+<li><strong>Connect</strong></li>
+</ul>
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/Kafka/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Ui Admin</strong>
+</header>
+
+      
+<article class="markdown"><h1 id="ui-管理工具">UI 管理工具</h1>
+<h2 id="kafka-tool">Kafka Tool</h2>
+<blockquote>
+<p>官方： <a href="http://www.kafkatool.com/download.html">http://www.kafkatool.com/download.html</a></p>
+<p>当前版本 2.0.8，For Kafka version 0.11 and later</p>
+</blockquote>
+<p>Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。</p>
+<p>使用方式详见：http://www.kafkatool.com/features.html</p>
+<h2 id="-yahoocmakkafka-manager">❤ yahoo/CMAK（Kafka Manager）</h2>
+<blockquote>
+<p>Github： <a href="https://github.com/yahoo/CMAK">https://github.com/yahoo/CMAK</a></p>
+</blockquote>
+<h3 id="docker-方式安装">Docker 方式安装</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 拉取 (支持到 2.0.0.2)</span>
+$ docker pull solsson/kafka-manager
+
+<span style="color:#75715e"># 运行</span>
+$ docker run -d -p 9000:9000 -e <span style="color:#e6db74">&#34;ZK_HOSTS=192.168.1.7:2181&#34;</span> --restart<span style="color:#f92672">=</span>always --name kafka-manager solsson/kafka-manager
+</code></pre></div><h2 id="xaecbdkafkacenter">xaecbd/KafkaCenter</h2>
+<blockquote>
+<p>Github： <a href="https://github.com/xaecbd/KafkaCenter">https://github.com/xaecbd/KafkaCenter</a></p>
+<p>依赖： MySQL、Elasticsearch (7.0+)</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 安装依赖： MySQL</span>
+$ docker run -d -p3306:3306 -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#ae81ff">123456</span> --name mysql mysql:5.7
+<span style="color:#75715e"># 使用初始化脚本创建库</span>
+https://github.com/xaecbd/KafkaCenter/blob/master/KafkaCenter-Core/sql/table_script.sql
+
+<span style="color:#75715e"># 安装依赖： ElasticSearch</span>
+$ docker run -d -p 9200:9200 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	-e TZ<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Asia/Shanghai&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	-e discovery.type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;single-node&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--name es.7.9.3 elasticsearch:7.9.3
+
+<span style="color:#75715e"># 编译安装 KafkaCenter</span>
+$ git clone https://github.com/xaecbd/KafkaCenter.git
+$ cd KafkaCenter
+$ git tag -l 					<span style="color:#75715e"># 查看版本</span>
+$ git checkout v2.3.0 <span style="color:#75715e"># 切换到指定的版本</span>
+$ mvn clean package -Dmaven.test.skip<span style="color:#f92672">=</span>true
+
+<span style="color:#75715e"># 参数详见：https://github.com/xaecbd/KafkaCenter/blob/master/KafkaCenter-Core/src/main/resources/application.properties</span>
+$ java -jar KafkaCenter-Core/target/KafkaCenter-Core-2.3.0.jar <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--spring.security.user.name<span style="color:#f92672">=</span>admin <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--spring.security.user.password<span style="color:#f92672">=</span>admin <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--spring.datasource.url<span style="color:#f92672">=</span>jdbc:mysql://localhost:3307/kafka_center <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--spring.datasource.username<span style="color:#f92672">=</span>root <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--spring.datasource.password<span style="color:#f92672">=</span><span style="color:#ae81ff">123456</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--monitor.elasticsearch.hosts<span style="color:#f92672">=</span>localhost:9200
+</code></pre></div><h2 id="smartlolikafka-eagle">smartloli/kafka-eagle</h2>
+<blockquote>
+<p>官网： <a href="https://www.kafka-eagle.org/">https://www.kafka-eagle.org/</a></p>
+<p>Github:  <a href="https://github.com/smartloli/kafka-eagle">https://github.com/smartloli/kafka-eagle</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ @see https://www.kafka-eagle.org/articles/docs/installation/linux-macos.html
+
+$ wget https://github.com/smartloli/kafka-eagle-bin/archive/v2.0.3.tar.gz
+
+</code></pre></div></article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Monitor/Ui-Admin.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kafka-tool">Kafka Tool</a></li>
+    <li><a href="#-yahoocmakkafka-manager">❤ yahoo/CMAK（Kafka Manager）</a>
+      <ul>
+        <li><a href="#docker-方式安装">Docker 方式安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#xaecbdkafkacenter">xaecbd/KafkaCenter</a></li>
+    <li><a href="#smartlolikafka-eagle">smartloli/kafka-eagle</a></li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>

@@ -75,22 +75,6 @@
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Ui-Admin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Ui-Admin/</guid>
-      <description>UI 管理工具 Kafka Tool  官方： http://www.kafkatool.com/download.html
-注：Kafka Tool 仅供个人使用，不得用于商业目的
- Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。
-使用方式详见：http://www.kafkatool.com/features.html
-yahoo/kafka-manager  官方： https://github.com/yahoo/kafka-manager
-Releases：https://github.com/yahoo/kafka-manager/releases
- 版本最高支持到 Kafka 0.9.0.1
-Docker 方式安装 # 拉取 (支持到 2.0.0.2) $ docker pull solsson/kafka-manager # 运行 $ docker run -d -p 9000:9000 -e &amp;#34;ZK_HOSTS=192.168.1.7:2181&amp;#34; --restart=always --name kafka-manager solsson/kafka-manager </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hello-world-example.github.io/Kafka/docs/Getting-Started/Versions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -123,6 +107,22 @@ Docker 方式安装 # 拉取 (支持到 2.0.0.2) $ docker pull solsson/kafka-man
   UnderReplicatedPartitions：即未充分备份的分区数。所谓未充分备份，是指并非所有的 Follower 副本都和 Leader 副本保持同步。一旦出现了这种情况，通常都表明该分区有可能会出现数据丢失。因此，这是一个非常重要的 JMX 指标。
   ISRShrink/ISRExpand：即 ISR 收缩和扩容的频次指标。如果你的环境中出现 ISR 中副本频繁进出的情形，那么这组值一定是很高的。这时，你要诊断下副本频繁进出 ISR 的原因，并采取适当的措施。
   ActiveControllerCount：即当前处于激活状态的控制器的数量。正常情况下，Controller 所在 Broker 上的这个 JMX 指标值应该是 1，其他 Broker 上的这个值是 0。如果你发现存在多台 Broker 上该值都是 1 的情况，一定要赶快处理，处理方式主要是查看网络连通性。这种情况通常表明集群出现了脑裂。脑裂问题是非常严重的分布式故障，Kafka 目前依托 ZooKeeper 来防止脑裂。但一旦出现脑裂，Kafka 是无法保证正常工作的。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Kafka/docs/Monitor/Ui-Admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Kafka/docs/Monitor/Ui-Admin/</guid>
+      <description>UI 管理工具 Kafka Tool  官方： http://www.kafkatool.com/download.html
+当前版本 2.0.8，For Kafka version 0.11 and later
+ Kafka Tool 是一个 C/S 工具，下载指定的安装包安装即可。
+使用方式详见：http://www.kafkatool.com/features.html
+❤ yahoo/CMAK（Kafka Manager）  Github： https://github.com/yahoo/CMAK
+ Docker 方式安装 # 拉取 (支持到 2.0.0.2) $ docker pull solsson/kafka-manager # 运行 $ docker run -d -p 9000:9000 -e &amp;#34;ZK_HOSTS=192.168.1.7:2181&amp;#34; --restart=always --name kafka-manager solsson/kafka-manager xaecbd/KafkaCenter  Github： https://github.com/xaecbd/KafkaCenter
+依赖： MySQL、Elasticsearch (7.0+)
+ # 安装依赖： MySQL $ docker run -d -p3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.</description>
     </item>
     
     <item>
