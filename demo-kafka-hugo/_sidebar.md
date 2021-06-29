@@ -3,9 +3,9 @@ headless: true
 ---
 
 * **Getting-Started**
-  * [快速开始]({{< relref "/docs/Getting-Started/Quick-Start.md" >}})
+  * [快速开始]({{< relref "/docs/Getting-Started/~Quick-Start.md" >}})
   * [vs RockMQ]({{< relref "/docs/Getting-Started/VS.Rocket.md" >}})
-  * [Versions]({{< relref "/docs/Getting-Started/Versions.md" >}})
+  * [Versions]({{< relref "/docs/Getting-Started/~Versions.md" >}})
   * [常用命令]({{< relref "/docs/Getting-Started/Cli-Quick.md" >}})
   * [Docker 集群]({{< relref "/docs/Getting-Started/Docker-Cluster.md" >}})
 * **Conf**
