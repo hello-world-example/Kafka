@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="快速开始 安装 cd /opt/websuite # 下载 https://kafka.apache.org/downloads $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz # 解压 $ tar zxvf kafka_2.12-1.0.1.tgz $ cd kafka_2.12-1.0.1 启动 Kafka # 先启动 Zookeeper $ bin/zookeeper-server-start.sh config/zookeeper.properties # 启动 Kafka $ bin/kafka-server-start.sh config/server.properties 创建 Topic # 创建一个 test 主题，包含 1个分区 和 1个副本 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test #&gt; Created topic &#34;test&#34;. # 查看 topic 列表 $ bin/kafka-topics.sh --list --zookeeper localhost:2181 #&gt; test 发送消息 # 发送消息 $ bin/kafka-console-producer."><meta property="og:title" content="" />
+<meta property="og:description" content="快速开始 安装 cd /opt/websuite # 下载 https://kafka.apache.org/downloads $ wget https://archive.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz # 解压 $ tar zxvf kafka_2.12-1.0.1.tgz $ cd kafka_2.12-1.0.1 启动 Kafka # 先启动 Zookeeper $ bin/zookeeper-server-start.sh config/zookeeper.properties # 启动 Kafka $ bin/kafka-server-start.sh config/server.properties 创建 Topic # 创建一个 test 主题，包含 1个分区 和 1个副本 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test #&gt; Created topic &#34;test&#34;. # 查看 topic 列表 $ bin/kafka-topics.sh --list --zookeeper localhost:2181 #&gt; test 发送消息 # 发送消息 $ bin/kafka-console-producer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Getting-Started/Quick-Start/" />
+
 <title>Quick Start | Kafka</title>
-
-
-<link rel="stylesheet" href="/Kafka/book.min.7f520bfa40fe705d4ffa1ffe31f874ecce401870d59a82cdffa2b5217cf1ad08.css">
-
-
-
-
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Kafka/book.min.00b8e784201abfe629a6e0741e94bf44575af8612aec171d94e4ecbd3692cf5c.css" integrity="sha256-ALjnhCAav&#43;YppuB0HpS/RFda&#43;GEq7BcdlOTsvTaSz1w=">
 
 
 <!--
@@ -24,13 +25,14 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
 <h2 class="book-brand">
-  <a href="https://hello-world-example.github.io/Kafka/">Kafka</a>
+  <a href="/Kafka"><span>Kafka</span>
+  </a>
 </h2>
 
 
@@ -38,37 +40,41 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
 
-  <style>
-  nav ul a[href$="\2fKafka\2f docs\2fGetting-Started\2fQuick-Start\2f "] {
-      color: #004ed0;
-  }
-  </style>
 
-<ul>
+
+
+
+
+  <ul>
 <li><strong>Getting-Started</strong>
 <ul>
-<li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
-<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Quick-Start/"class=active>快速开始</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
 </ul>
 </li>
 <li><strong>Conf</strong>
 <ul>
-<li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
-<li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
 </ul>
 </li>
 <li><strong>Monitor</strong>
 <ul>
-<li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
-<li><a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
 <li><strong>Connect</strong></li>
@@ -80,31 +86,64 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/Kafka/svg/menu.svg" alt="Menu" />
+    <img src="/Kafka/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>Quick Start</strong>
-</header>
+
+  <label for="toc-control">
+    <img src="/Kafka/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#快速开始">快速开始</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#启动-kafka">启动 Kafka</a></li>
+        <li><a href="#创建-topic">创建 Topic</a></li>
+        <li><a href="#发送消息">发送消息</a></li>
+        <li><a href="#接收消息">接收消息</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="快速开始">快速开始</h1>
+      
+  <article class="markdown"><h1 id="快速开始">快速开始</h1>
 <h2 id="安装">安装</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/websuite
 
@@ -146,49 +185,96 @@ asd
 
 </code></pre></div><h2 id="read-more">Read More</h2>
 <ul>
-<li>官方文档 <a href="http://kafka.apache.org/quickstart">Quickstart</a></li>
-<li>中文社区 <a href="http://kafka.apachecn.org/quickstart.html">Quickstart</a></li>
+<li>官方文档 
+  <a href="http://kafka.apache.org/quickstart">Quickstart</a></li>
+<li>中文社区 
+  <a href="http://kafka.apachecn.org/quickstart.html">Quickstart</a></li>
 </ul>
 </article>
-
+ 
       
-<div class="book-footer justify-end">
-  
-  
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
   <div>
-    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/Quick-Start.md" target="_blank" rel="noopener">
-      <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/Quick-Start.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
-  
+
 </div>
 
+ 
+        <script>
+    var images = document.getElementsByTagName("img")
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i]
+        var src = image.getAttribute("src");
+        if (src.startsWith("-images")) {
+            image.setAttribute("src", "../" + src);
+        }
+        image.onclick = function () {
+            window.open(this.getAttribute("src"))
+        }
+    }
+</script>
+
+      </footer>
 
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
-  
-
-  <aside class="book-toc level-3 fixed">
-    <nav id="TableOfContents">
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
   <ul>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#启动-kafka">启动 Kafka</a></li>
-    <li><a href="#创建-topic">创建 Topic</a></li>
-    <li><a href="#发送消息">发送消息</a></li>
-    <li><a href="#接收消息">接收消息</a></li>
-    <li><a href="#read-more">Read More</a></li>
+    <li><a href="#快速开始">快速开始</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#启动-kafka">启动 Kafka</a></li>
+        <li><a href="#创建-topic">创建 Topic</a></li>
+        <li><a href="#发送消息">发送消息</a></li>
+        <li><a href="#接收消息">接收消息</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
-  </aside>
 
-
-
+ 
+    </aside>
+    
   </main>
-  
-  
+
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

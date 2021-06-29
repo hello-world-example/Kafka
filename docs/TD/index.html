@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="查看集群节点（通过 Zookeeper 查看） /opt/websuite/zookeeper/bin/zkCli.sh ls /brokers/ids get /brokers/ids/0
+  如何查看 哪个 brocker 是 master get /controller
+  topic 列表 bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;list
+  两个关键的 Topic 信息 bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic info-log &ndash;describe bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic exception-log &ndash;describe
+  bin/kafka-configs.sh &ndash;zookeeper localhost:2181 &ndash;entity-type brokers &ndash;entity-name 0 &ndash;describe
+{&ldquo;version&rdquo;:1,&ldquo;partitions&rdquo;:[{&ldquo;topic&rdquo;:&ldquo;exception-log&rdquo;,&ldquo;partition&rdquo;:0,&ldquo;replicas&rdquo;:[1,0]}]} bin/kafka-reassign-partitions.sh &ndash;zookeeper localhost:2181 &ndash;reassignment-json-file /opt/websuite/kafka/replication.json &ndash;execute
+apache kafka系列之在zookeeper中存储结构： https://blog.csdn.net/lizhitao/article/details/23744675 https://uohzoaix.github.io/studies//2016/01/13/kafka%E9%9B%86%E7%BE%A4%E4%B9%8B%E7%A1%AE%E5%AE%9Aleader/ Kafka 如何手动触发重新选举 https://johng.cn/update-kafka-topic-replicas/
+./bin/kafka-configs.sh &ndash;zookeeper s01.soa-solr.ttp.wx:2181 &ndash;alter &ndash;entity-type topics &ndash;entity-name topic-giraffe &ndash;add-config retention."><meta property="og:title" content="" />
+<meta property="og:description" content="查看集群节点（通过 Zookeeper 查看） /opt/websuite/zookeeper/bin/zkCli.sh ls /brokers/ids get /brokers/ids/0
+  如何查看 哪个 brocker 是 master get /controller
+  topic 列表 bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;list
+  两个关键的 Topic 信息 bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic info-log &ndash;describe bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic exception-log &ndash;describe
+  bin/kafka-configs.sh &ndash;zookeeper localhost:2181 &ndash;entity-type brokers &ndash;entity-name 0 &ndash;describe
+{&ldquo;version&rdquo;:1,&ldquo;partitions&rdquo;:[{&ldquo;topic&rdquo;:&ldquo;exception-log&rdquo;,&ldquo;partition&rdquo;:0,&ldquo;replicas&rdquo;:[1,0]}]} bin/kafka-reassign-partitions.sh &ndash;zookeeper localhost:2181 &ndash;reassignment-json-file /opt/websuite/kafka/replication.json &ndash;execute
+apache kafka系列之在zookeeper中存储结构： https://blog.csdn.net/lizhitao/article/details/23744675 https://uohzoaix.github.io/studies//2016/01/13/kafka%E9%9B%86%E7%BE%A4%E4%B9%8B%E7%A1%AE%E5%AE%9Aleader/ Kafka 如何手动触发重新选举 https://johng.cn/update-kafka-topic-replicas/
+./bin/kafka-configs.sh &ndash;zookeeper s01.soa-solr.ttp.wx:2181 &ndash;alter &ndash;entity-type topics &ndash;entity-name topic-giraffe &ndash;add-config retention." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Kafka/TD/" />
+
+<title>T D | Kafka</title>
+<link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Kafka/book.min.00b8e784201abfe629a6e0741e94bf44575af8612aec171d94e4ecbd3692cf5c.css" integrity="sha256-ALjnhCAav&#43;YppuB0HpS/RFda&#43;GEq7BcdlOTsvTaSz1w=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Kafka"><span>Kafka</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><strong>Getting-Started</strong>
+<ul>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+</ul>
+</li>
+<li><strong>Conf</strong>
+<ul>
+<li>
+  <a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+</ul>
+</li>
+<li><strong>Monitor</strong>
+<ul>
+<li>
+  <a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
+</ul>
+</li>
+<li><strong>Connect</strong></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Kafka/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>T D</strong>
+
+  <label for="toc-control">
+    <img src="/Kafka/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><ol start="0">
+<li>
+<p>查看集群节点（通过 Zookeeper 查看）
+/opt/websuite/zookeeper/bin/zkCli.sh
+ls /brokers/ids
+get /brokers/ids/0</p>
+</li>
+<li>
+<p>如何查看 哪个 brocker 是 master
+get /controller</p>
+</li>
+<li>
+<p>topic 列表
+bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;list</p>
+</li>
+<li>
+<p>两个关键的 Topic 信息
+bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic info-log &ndash;describe
+bin/kafka-topics.sh &ndash;zookeeper localhost:2181 &ndash;topic exception-log &ndash;describe</p>
+</li>
+</ol>
+<p>bin/kafka-configs.sh &ndash;zookeeper localhost:2181 &ndash;entity-type brokers &ndash;entity-name 0 &ndash;describe</p>
+<p>{&ldquo;version&rdquo;:1,&ldquo;partitions&rdquo;:[{&ldquo;topic&rdquo;:&ldquo;exception-log&rdquo;,&ldquo;partition&rdquo;:0,&ldquo;replicas&rdquo;:[1,0]}]}
+bin/kafka-reassign-partitions.sh &ndash;zookeeper localhost:2181 &ndash;reassignment-json-file /opt/websuite/kafka/replication.json &ndash;execute</p>
+<p>apache kafka系列之在zookeeper中存储结构： <a href="https://blog.csdn.net/lizhitao/article/details/23744675">https://blog.csdn.net/lizhitao/article/details/23744675</a>
+<a href="https://uohzoaix.github.io/studies//2016/01/13/kafka%E9%9B%86%E7%BE%A4%E4%B9%8B%E7%A1%AE%E5%AE%9Aleader/">https://uohzoaix.github.io/studies//2016/01/13/kafka%E9%9B%86%E7%BE%A4%E4%B9%8B%E7%A1%AE%E5%AE%9Aleader/</a>  Kafka 如何手动触发重新选举
+<a href="https://johng.cn/update-kafka-topic-replicas/">https://johng.cn/update-kafka-topic-replicas/</a></p>
+<p>./bin/kafka-configs.sh &ndash;zookeeper s01.soa-solr.ttp.wx:2181 &ndash;alter &ndash;entity-type topics &ndash;entity-name topic-giraffe &ndash;add-config retention.ms=3000</p>
+<pre><code>bin/kafka-console-consumer.sh --topic __consumer_offsets --zookeeper s01.soa-solr.ttp.wx:2181 --formatter &quot;kafka.coordinator.GroupMetadataManager\$OffsetsMessageFormatter&quot; --consumer.config /opt/config/kafka/consumer.properties --from-beginning
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/TD.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        <script>
+    var images = document.getElementsByTagName("img")
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i]
+        var src = image.getAttribute("src");
+        if (src.startsWith("-images")) {
+            image.setAttribute("src", "../" + src);
+        }
+        image.onclick = function () {
+            window.open(this.getAttribute("src"))
+        }
+    }
+</script>
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

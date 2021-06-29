@@ -4,15 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TODO Monitoring Kafka Consumer Offsets : https://blog.godatadriven.com/monitoring-kafka-consumer-lag
+精确一次语义  https://juejin.im/post/5ce179e1f265da1bd04eb01a  "><meta property="og:title" content="" />
+<meta property="og:description" content="TODO Monitoring Kafka Consumer Offsets : https://blog.godatadriven.com/monitoring-kafka-consumer-lag
+精确一次语义  https://juejin.im/post/5ce179e1f265da1bd04eb01a  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/TD/" />
+
 <title>T D | Kafka</title>
-
-
-<link rel="stylesheet" href="/Kafka/book.min.7f520bfa40fe705d4ffa1ffe31f874ecce401870d59a82cdffa2b5217cf1ad08.css">
-
-
-
-
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Kafka/book.min.00b8e784201abfe629a6e0741e94bf44575af8612aec171d94e4ecbd3692cf5c.css" integrity="sha256-ALjnhCAav&#43;YppuB0HpS/RFda&#43;GEq7BcdlOTsvTaSz1w=">
 
 
 <!--
@@ -24,13 +27,14 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
 <h2 class="book-brand">
-  <a href="https://hello-world-example.github.io/Kafka/">Kafka</a>
+  <a href="/Kafka"><span>Kafka</span>
+  </a>
 </h2>
 
 
@@ -38,37 +42,41 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
 
-  <style>
-  nav ul a[href$="\2fKafka\2f docs\2fTD\2f "] {
-      color: #004ed0;
-  }
-  </style>
 
-<ul>
+
+
+
+
+  <ul>
 <li><strong>Getting-Started</strong>
 <ul>
-<li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
-<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
 </ul>
 </li>
 <li><strong>Conf</strong>
 <ul>
-<li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
-<li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
 </ul>
 </li>
 <li><strong>Monitor</strong>
 <ul>
-<li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
-<li><a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
 <li><strong>Connect</strong></li>
@@ -80,78 +88,144 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/Kafka/svg/menu.svg" alt="Menu" />
+    <img src="/Kafka/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>T D</strong>
-</header>
+
+  <label for="toc-control">
+    <img src="/Kafka/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#todo">TODO</a>
+      <ul>
+        <li><a href="#精确一次语义">精确一次语义</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="todo">TODO</h1>
+      
+  <article class="markdown"><h1 id="todo">TODO</h1>
 <p>Monitoring Kafka Consumer Offsets : <a href="https://blog.godatadriven.com/monitoring-kafka-consumer-lag">https://blog.godatadriven.com/monitoring-kafka-consumer-lag</a></p>
 <h2 id="精确一次语义">精确一次语义</h2>
 <ul>
 <li><a href="https://juejin.im/post/5ce179e1f265da1bd04eb01a">https://juejin.im/post/5ce179e1f265da1bd04eb01a</a></li>
 </ul>
 </article>
-
+ 
       
-<div class="book-footer justify-between">
-  
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
   <div>
-    
-    <a href="https://github.com/hello-world-example/Kafka/commit/08e93390df50656de5880b4b4898fb4382188147" title='Last modified May 11, 2020 by 杨凯彬' target="_blank" rel="noopener">
-      <img src="/Kafka/svg/calendar.svg" alt="Changed" /> May 11, 2020
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/TD.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
-  
-  
-  <div>
-    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/TD.md" target="_blank" rel="noopener">
-      <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
-    </a>
-  </div>
-  
+
 </div>
 
+ 
+        <script>
+    var images = document.getElementsByTagName("img")
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i]
+        var src = image.getAttribute("src");
+        if (src.startsWith("-images")) {
+            image.setAttribute("src", "../" + src);
+        }
+        image.onclick = function () {
+            window.open(this.getAttribute("src"))
+        }
+    }
+</script>
+
+      </footer>
 
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
-  
-
-  <aside class="book-toc level-3 fixed">
-    <nav id="TableOfContents">
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
   <ul>
-    <li><a href="#精确一次语义">精确一次语义</a></li>
+    <li><a href="#todo">TODO</a>
+      <ul>
+        <li><a href="#精确一次语义">精确一次语义</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
-  </aside>
 
-
-
+ 
+    </aside>
+    
   </main>
-  
-  
+
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

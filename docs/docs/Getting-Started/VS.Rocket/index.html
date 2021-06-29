@@ -4,15 +4,24 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kafka vs RockMQ NameSvr vs. Zookeeper   Kafka 通过 Zookeeper 来进行协调
+  RocketMQ 通过自身的 namesrv 进行协调。
+  kafka 在具备选举功能，在 Kafka 里面，Master/Slave 的选举，有2步：
+ 第1步，先通过 ZK 在所有机器中，选举出一个 KafkaController； 第2步，再由这个 Controller，决定每个 partition 的 Master 是谁，Slave 是谁。 Kafka 某个 partition 的 master 挂了，该 partition 对应的某个slave会升级为主对外提供服务。    RocketMQ不具备选举，Master/Slave的角色也是固定的。
+ 当一个Master挂了之后，你可以写到其他Master上，但不能让一个Slave切换成Master。 那么RocketMq是如何实现高可用的呢？  rocketMq的所有broker节点的角色都是一样，上面分配的topic和对应的queue的数量也是一样的，MQ 只能保证当一个broker挂了，把原本写到这个broker的请求迁移到其他broker上面，而并不是这个broker对应的slave升级为主。   RocketMQ 在协调节点的设计上显得更加轻量，用了另外一种方式解决高可用的问题，思路也是可以借鉴的。    吞吐量   Kafka 在消息存储过程中会根据 topic 和 partition 的数量创建物理文件，也就是说创建一个 topic 并指定了 3个 partition，那么就会有3个物理文件目录，也就说说 partition 的数量和对应的物理文件是一一对应的"><meta property="og:title" content="" />
+<meta property="og:description" content="Kafka vs RockMQ NameSvr vs. Zookeeper   Kafka 通过 Zookeeper 来进行协调
+  RocketMQ 通过自身的 namesrv 进行协调。
+  kafka 在具备选举功能，在 Kafka 里面，Master/Slave 的选举，有2步：
+ 第1步，先通过 ZK 在所有机器中，选举出一个 KafkaController； 第2步，再由这个 Controller，决定每个 partition 的 Master 是谁，Slave 是谁。 Kafka 某个 partition 的 master 挂了，该 partition 对应的某个slave会升级为主对外提供服务。    RocketMQ不具备选举，Master/Slave的角色也是固定的。
+ 当一个Master挂了之后，你可以写到其他Master上，但不能让一个Slave切换成Master。 那么RocketMq是如何实现高可用的呢？  rocketMq的所有broker节点的角色都是一样，上面分配的topic和对应的queue的数量也是一样的，MQ 只能保证当一个broker挂了，把原本写到这个broker的请求迁移到其他broker上面，而并不是这个broker对应的slave升级为主。   RocketMQ 在协调节点的设计上显得更加轻量，用了另外一种方式解决高可用的问题，思路也是可以借鉴的。    吞吐量   Kafka 在消息存储过程中会根据 topic 和 partition 的数量创建物理文件，也就是说创建一个 topic 并指定了 3个 partition，那么就会有3个物理文件目录，也就说说 partition 的数量和对应的物理文件是一一对应的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Getting-Started/VS.Rocket/" />
+
 <title>V S. Rocket | Kafka</title>
-
-
-<link rel="stylesheet" href="/Kafka/book.min.7f520bfa40fe705d4ffa1ffe31f874ecce401870d59a82cdffa2b5217cf1ad08.css">
-
-
-
-
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Kafka/book.min.00b8e784201abfe629a6e0741e94bf44575af8612aec171d94e4ecbd3692cf5c.css" integrity="sha256-ALjnhCAav&#43;YppuB0HpS/RFda&#43;GEq7BcdlOTsvTaSz1w=">
 
 
 <!--
@@ -24,13 +33,14 @@ https://github.com/alex-shpak/hugo-book
 </head>
 
 <body>
-  <input type="checkbox" style="display: none" id="menu-control" />
-  <main class="flex container">
-
-    <aside class="book-menu fixed">
-      <nav>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
 <h2 class="book-brand">
-  <a href="https://hello-world-example.github.io/Kafka/">Kafka</a>
+  <a href="/Kafka"><span>Kafka</span>
+  </a>
 </h2>
 
 
@@ -38,37 +48,41 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-    
-  
-  
-  
 
-  <style>
-  nav ul a[href$="\2fKafka\2f docs\2fGetting-Started\2fVS.Rocket\2f "] {
-      color: #004ed0;
-  }
-  </style>
 
-<ul>
+
+
+
+
+  <ul>
 <li><strong>Getting-Started</strong>
 <ul>
-<li><a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
-<li><a href="/Kafka/docs/Getting-Started/VS.Rocket/">vs RockMQ</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
-<li><a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Quick-Start/">快速开始</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/VS.Rocket/"class=active>vs RockMQ</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Versions/">Versions</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Cli-Quick/">常用命令</a></li>
+<li>
+  <a href="/Kafka/docs/Getting-Started/Docker-Cluster/">Docker 集群</a></li>
 </ul>
 </li>
 <li><strong>Conf</strong>
 <ul>
-<li><a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
-<li><a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Producer/">- Producer</a></li>
+<li>
+  <a href="/Kafka/docs/Conf/Consumer/">- Consumer</a></li>
 </ul>
 </li>
 <li><strong>Monitor</strong>
 <ul>
-<li><a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
-<li><a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/jmx-metrics/">JMX 指标</a></li>
+<li>
+  <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
 <li><strong>Connect</strong></li>
@@ -80,31 +94,61 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+
 </nav>
 
 
-<script>
-(function() {
-  var menu = document.querySelector("aside.book-menu nav");
-  addEventListener("beforeunload", function(event) {
-    localStorage.setItem("menu.scrollTop", menu.scrollTop);
-  });
-  menu.scrollTop = localStorage.getItem("menu.scrollTop");
-})();
-</script>
 
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
     </aside>
 
     <div class="book-page">
-      <header class="flex align-center justify-between book-header">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/Kafka/svg/menu.svg" alt="Menu" />
+    <img src="/Kafka/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
+
   <strong>V S. Rocket</strong>
-</header>
+
+  <label for="toc-control">
+    <img src="/Kafka/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kafka-vs-rockmq">Kafka vs RockMQ</a>
+      <ul>
+        <li><a href="#namesvr-vs-zookeeper">NameSvr vs. Zookeeper</a></li>
+        <li><a href="#吞吐量">吞吐量</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
 
       
-<article class="markdown"><h1 id="kafka-vs-rockmq">Kafka vs RockMQ</h1>
+      
+  <article class="markdown"><h1 id="kafka-vs-rockmq">Kafka vs RockMQ</h1>
 <h2 id="namesvr-vs-zookeeper">NameSvr vs. Zookeeper</h2>
 <ul>
 <li>
@@ -153,56 +197,96 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li>原文来自
 <ul>
-<li><a href="https://www.jianshu.com/p/c474ca9f9430">RocketMQ 和 Kafka 的架构区别</a></li>
-<li><a href="https://mp.weixin.qq.com/s/KfBruI-tOz-eJuM2fgqyew">阿里RocketMQ</a></li>
+<li>
+  <a href="https://www.jianshu.com/p/c474ca9f9430">RocketMQ 和 Kafka 的架构区别</a></li>
+<li>
+  <a href="https://mp.weixin.qq.com/s/KfBruI-tOz-eJuM2fgqyew">阿里RocketMQ</a></li>
 </ul>
 </li>
 <li><a href="https://hello-world-example.github.io/RocketMQ/#/vs">https://hello-world-example.github.io/RocketMQ/#/vs</a></li>
 </ul>
 </article>
-
+ 
       
-<div class="book-footer justify-between">
-  
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
   <div>
-    
-    <a href="https://github.com/hello-world-example/Kafka/commit/08e93390df50656de5880b4b4898fb4382188147" title='Last modified May 11, 2020 by 杨凯彬' target="_blank" rel="noopener">
-      <img src="/Kafka/svg/calendar.svg" alt="Changed" /> May 11, 2020
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/VS.Rocket.md" target="_blank" rel="noopener">
+      <img src="/Kafka/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
     </a>
   </div>
-  
-  
-  <div>
-    <a href="https://github.com/hello-world-example/Kafka/edit/master/HuGo/content/docs/Getting-Started/VS.Rocket.md" target="_blank" rel="noopener">
-      <img src="/Kafka/svg/edit.svg" alt="Edit" /> Edit this page
-    </a>
-  </div>
-  
+
 </div>
 
+ 
+        <script>
+    var images = document.getElementsByTagName("img")
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i]
+        var src = image.getAttribute("src");
+        if (src.startsWith("-images")) {
+            image.setAttribute("src", "../" + src);
+        }
+        image.onclick = function () {
+            window.open(this.getAttribute("src"))
+        }
+    }
+</script>
+
+      </footer>
 
       
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
     
-  
-
-  <aside class="book-toc level-3 fixed">
-    <nav id="TableOfContents">
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
   <ul>
-    <li><a href="#namesvr-vs-zookeeper">NameSvr vs. Zookeeper</a></li>
-    <li><a href="#吞吐量">吞吐量</a></li>
-    <li><a href="#read-more">Read More</a></li>
+    <li><a href="#kafka-vs-rockmq">Kafka vs RockMQ</a>
+      <ul>
+        <li><a href="#namesvr-vs-zookeeper">NameSvr vs. Zookeeper</a></li>
+        <li><a href="#吞吐量">吞吐量</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
-  </aside>
 
-
-
+ 
+    </aside>
+    
   </main>
-  
-  
+
   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

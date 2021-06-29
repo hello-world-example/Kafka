@@ -11,20 +11,23 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>kafka-tool</module>
+        <!-- Hugo -->
+        <module>demo-kafka-hugo</module>
 
-        <module>official-kafka</module>
-        <module>spring-kafka</module>
+        <module>kafka-tool</module>
+        <!-- 原生 Kafka -->
+        <module>demo-kafka-official</module>
+        <!-- Spring 封装的 Kafka -->
+        <module>demo-kafka-spring</module>
+        <!-- Kafka 管理 API -->
         <module>kafka-admin</module>
+
+        <module>demo-kafka-connect</module>
+        <module>demo-kafka-stream</module>
     </modules>
 
 
     <properties>
-        <java.version>8</java.version>
-        <encoding>UTF-8</encoding>
-
-<!--        <kafka.version>1.0.2</kafka.version>-->
-<!--        <kafka.version>2.3.1</kafka.version>-->
         <kafka.version>2.5.0</kafka.version>
         <spring.kafka.version>2.3.6.RELEASE</spring.kafka.version>
     </properties>
@@ -35,13 +38,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.26</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -70,19 +66,6 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${encoding}</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <repositories>
         <repository>
