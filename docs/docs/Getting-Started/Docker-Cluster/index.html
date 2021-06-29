@@ -10,7 +10,7 @@
  Docker Zookeeper $ docker pull zookeeper	$ docker run -d -p 2181:2181 --restart=always --name zookeeper zookeeper:latest Kafka $ docker pull wurstmeister/kafka # 192.168.1.5 是 宿主机 IP # Kafka02 $ docker run -d -p 9092:9092 -p 9292:9292 --restart=always \  --add-host kafka01.kail.xyz:192.168.1.5 \  --add-host kafka02.kail.xyz:192.168.1.5 \  --add-host kafka03.kail.xyz:192.168.1.5 \  -h kafka02.kail.xyz \  -e &#34;KAFKA_ZOOKEEPER_CONNECT=192.168.1.5:2181/kafka&#34; \  -e &#34;KAFKA_LISTENERS=PLAINTEXT://:9092&#34; \  -e &#34;KAFKA_BROKER_ID=2&#34; \  -e &#34;KAFKA_JMX_OPTS=-Dcom." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Getting-Started/Docker-Cluster/" />
-
+<meta property="article:modified_time" content="2021-06-29T12:00:43+08:00" />
 <title>Docker Cluster | Kafka</title>
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
 
@@ -79,7 +79,8 @@ https://github.com/alex-shpak/hugo-book
   <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
-<li><strong>Connect</strong></li>
+<li>
+  <a href="/Kafka/docs/Connect/README/">Connect..</a></li>
 </ul>
 
 
@@ -299,6 +300,14 @@ $ docker run -d -p 9093:9093 -p 9393:9393 --restart<span style="color:#f92672">=
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/commit/08cd148d12f20064e14dfbb8012f844f4d9d3ea1" title='Last modified by kaibin.yang | Jun 29, 2021' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 29, 2021</span>
+    </a>
+  </div>
 
 
 

@@ -16,7 +16,7 @@
  当一个Master挂了之后，你可以写到其他Master上，但不能让一个Slave切换成Master。 那么RocketMq是如何实现高可用的呢？  rocketMq的所有broker节点的角色都是一样，上面分配的topic和对应的queue的数量也是一样的，MQ 只能保证当一个broker挂了，把原本写到这个broker的请求迁移到其他broker上面，而并不是这个broker对应的slave升级为主。   RocketMQ 在协调节点的设计上显得更加轻量，用了另外一种方式解决高可用的问题，思路也是可以借鉴的。    吞吐量   Kafka 在消息存储过程中会根据 topic 和 partition 的数量创建物理文件，也就是说创建一个 topic 并指定了 3个 partition，那么就会有3个物理文件目录，也就说说 partition 的数量和对应的物理文件是一一对应的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Getting-Started/VS.Rocket/" />
-
+<meta property="article:modified_time" content="2021-06-29T12:00:43+08:00" />
 <title>V S. Rocket | Kafka</title>
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
 
@@ -85,7 +85,8 @@ https://github.com/alex-shpak/hugo-book
   <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
-<li><strong>Connect</strong></li>
+<li>
+  <a href="/Kafka/docs/Connect/README/">Connect..</a></li>
 </ul>
 
 
@@ -214,6 +215,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/commit/08cd148d12f20064e14dfbb8012f844f4d9d3ea1" title='Last modified by kaibin.yang | Jun 29, 2021' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 29, 2021</span>
+    </a>
+  </div>
 
 
 

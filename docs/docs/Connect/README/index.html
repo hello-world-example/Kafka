@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=""><meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta name="description" content="Kafka Connect 简介  Kafka Connect 是建立在 Kafka Brocker 之上的数据导入导出工具 Kafka Connect 与 Kafka 一起，但是需要单独启动，先启动 Kafka，再启动 Kafka Connect，两个是独立的进程 Kafka Connect 通过 Source Connect 获取数据，写入到 Topic，通过 Sink Connect 从 Topic 中获取数据，传输到其他地方 官方提供的 Connect 不多，但是其本身也是个开发框架（ org.apache.kafka:connect-api ），屏蔽了 Kafka 连接、推送、偏移 等细节，可以专注于数据处理；Topic 的发送和订阅，由 Connect Framework 处理 分布式部署模式下，提供 RestAPI 接口，用户在线管理 Connect 插件，可以 创建、修改、暂停、恢复、重启 等  部署方式 Standalone mode  适用于 本地环境 的开发和测试 有些情况下着只能使用 Standalone 模式，如：发送本地文件到 Kafka 启动 Connector 时，只能使用配置文件启动，无法使用 Rest 接口  Distributed mode  Kafka Connect 可以与 Kafka Broker 分开部署，Kafka Connect 在多台实例上启动，连接到同一个 Kafka Broker，实现高可用 当然，集群默认启动一个 Connect 节点也是可以的，Connect 节点在集群中的角色可称之为 Worker 当多个 Kafka Connect Worker 中一个 Down 之后，则 Kafka Connect 会把 Down 掉 Worker 的任务分发给集群中的其他节点 因为 Kafka Connect 在 Kafka 集群内存储了连接器配置、状态、偏移信息 等，所以转义过程中是安全的，不会丢失数据 集群模式下启动更简单，启动后，可以通过 RestAPI 管理，配合 Kafka Connect UI 会更加方便  Distributed 模式部署 config/connect-distributed."><meta property="og:title" content="" />
+<meta property="og:description" content="Kafka Connect 简介  Kafka Connect 是建立在 Kafka Brocker 之上的数据导入导出工具 Kafka Connect 与 Kafka 一起，但是需要单独启动，先启动 Kafka，再启动 Kafka Connect，两个是独立的进程 Kafka Connect 通过 Source Connect 获取数据，写入到 Topic，通过 Sink Connect 从 Topic 中获取数据，传输到其他地方 官方提供的 Connect 不多，但是其本身也是个开发框架（ org.apache.kafka:connect-api ），屏蔽了 Kafka 连接、推送、偏移 等细节，可以专注于数据处理；Topic 的发送和订阅，由 Connect Framework 处理 分布式部署模式下，提供 RestAPI 接口，用户在线管理 Connect 插件，可以 创建、修改、暂停、恢复、重启 等  部署方式 Standalone mode  适用于 本地环境 的开发和测试 有些情况下着只能使用 Standalone 模式，如：发送本地文件到 Kafka 启动 Connector 时，只能使用配置文件启动，无法使用 Rest 接口  Distributed mode  Kafka Connect 可以与 Kafka Broker 分开部署，Kafka Connect 在多台实例上启动，连接到同一个 Kafka Broker，实现高可用 当然，集群默认启动一个 Connect 节点也是可以的，Connect 节点在集群中的角色可称之为 Worker 当多个 Kafka Connect Worker 中一个 Down 之后，则 Kafka Connect 会把 Down 掉 Worker 的任务分发给集群中的其他节点 因为 Kafka Connect 在 Kafka 集群内存储了连接器配置、状态、偏移信息 等，所以转义过程中是安全的，不会丢失数据 集群模式下启动更简单，启动后，可以通过 RestAPI 管理，配合 Kafka Connect UI 会更加方便  Distributed 模式部署 config/connect-distributed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Connect/README/" />
-
+<meta property="article:modified_time" content="2021-06-29T12:00:43+08:00" />
 <title>R E a D M E | Kafka</title>
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
 
@@ -77,7 +77,8 @@ https://github.com/alex-shpak/hugo-book
   <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
-<li><strong>Connect</strong></li>
+<li>
+  <a href="/Kafka/docs/Connect/README/"class=active>Connect..</a></li>
 </ul>
 
 
@@ -120,7 +121,31 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kafka-connect">Kafka Connect</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#部署方式">部署方式</a>
+          <ul>
+            <li><a href="#standalone-mode">Standalone mode</a></li>
+            <li><a href="#distributed-mode">Distributed mode</a></li>
+          </ul>
+        </li>
+        <li><a href="#distributed-模式部署">Distributed 模式部署</a>
+          <ul>
+            <li><a href="#configconnect-distributedproperties">config/connect-distributed.properties</a></li>
+            <li><a href="#启动-kafka-connect">启动 Kafka Connect</a></li>
+            <li><a href="#查看启动结果">查看启动结果</a></li>
+          </ul>
+        </li>
+        <li><a href="#kafka-connect-uidocker">Kafka Connect UI（Docker）</a></li>
+        <li><a href="#demofilestreamsourceconnector">【Demo】FileStreamSourceConnector</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -130,7 +155,144 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"></article>
+  <article class="markdown"><h1 id="kafka-connect">Kafka Connect</h1>
+<h2 id="简介">简介</h2>
+<ul>
+<li>Kafka Connect 是建立在 Kafka Brocker 之上的数据导入导出工具</li>
+<li>Kafka Connect 与 Kafka 一起，但是需要单独启动，先启动 Kafka，再启动 Kafka Connect，两个是独立的进程</li>
+<li>Kafka Connect 通过 <code>Source Connect</code> 获取数据，写入到 Topic，通过 <code>Sink Connect</code> 从 Topic 中获取数据，传输到其他地方</li>
+<li>官方提供的 Connect 不多，但是其本身也是个开发框架（ <code>org.apache.kafka:connect-api</code> ），屏蔽了 Kafka 连接、推送、偏移 等细节，可以专注于数据处理；Topic 的发送和订阅，由 Connect Framework 处理</li>
+<li>分布式部署模式下，提供 RestAPI 接口，用户在线管理 Connect 插件，可以 创建、修改、暂停、恢复、重启 等</li>
+</ul>
+<h2 id="部署方式">部署方式</h2>
+<h3 id="standalone-mode">Standalone mode</h3>
+<ul>
+<li>适用于 <strong>本地环境</strong> 的开发和测试</li>
+<li>有些情况下着只能使用 Standalone 模式，如：发送本地文件到 Kafka</li>
+<li>启动 Connector 时，只能使用配置文件启动，无法使用 Rest 接口</li>
+</ul>
+<h3 id="distributed-mode">Distributed mode</h3>
+<ul>
+<li>Kafka Connect 可以与 Kafka Broker 分开部署，Kafka Connect 在多台实例上启动，连接到同一个 Kafka Broker，实现高可用</li>
+<li>当然，集群默认启动一个 Connect 节点也是可以的，Connect 节点在集群中的角色可称之为 <strong>Worker</strong></li>
+<li>当多个 Kafka Connect Worker 中一个 Down 之后，则 Kafka Connect 会把 Down 掉 Worker 的任务分发给集群中的其他节点</li>
+<li>因为 Kafka Connect 在 Kafka 集群内存储了连接器配置、状态、偏移信息 等，所以转义过程中是安全的，不会丢失数据</li>
+<li>集群模式下启动更简单，启动后，可以通过 RestAPI 管理，配合 <strong>Kafka Connect UI</strong> 会更加方便</li>
+</ul>
+<h2 id="distributed-模式部署">Distributed 模式部署</h2>
+<h3 id="configconnect-distributedproperties">config/connect-distributed.properties</h3>
+<p>以下是一些关键配置：</p>
+<pre><code class="language-properties" data-lang="properties"># Kafka Broker 集群地址，多个用 逗号 分割
+bootstrap.servers=localhost:9092
+
+# 集群名称，
+group.id=connect-cluster
+
+# 【自动创建 Topic】保存 connector Offset 信息
+offset.storage.topic=connect-offsets
+# 【自动创建 Topic】保存 Connector 和 Task 的配置信息
+config.storage.topic=connect-configs
+# 【自动创建 Topic】保存 Connector 状态信息
+status.storage.topic=connect-status
+
+
+# REST API 端口
+rest.port=8083
+
+# 自定义 Connect Plugin 的本地扫描路径，多个用 逗号 分割
+plugin.path=/opt/websuite/kafka/connects
+</code></pre><h3 id="启动-kafka-connect">启动 Kafka Connect</h3>
+<blockquote>
+<ul>
+<li>需要先把 Kafka 启动起来</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/connect-distributed.sh -daemon ./config/connect-distributed.properties
+</code></pre></div><h3 id="查看启动结果">查看启动结果</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看版本信息</span>
+$ curl http://localhost:8083
+	<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;version&#34;</span>:<span style="color:#e6db74">&#34;2.5.0&#34;</span>,<span style="color:#e6db74">&#34;commit&#34;</span>:<span style="color:#e6db74">&#34;66563e712b0b9f84&#34;</span>,<span style="color:#e6db74">&#34;kafka_cluster_id&#34;</span>:<span style="color:#e6db74">&#34;NH6dCKVvRLKY970nFDcFXg&#34;</span><span style="color:#f92672">}</span>
+
+#
+<span style="color:#75715e"># 系统自带了 FileStreamConnector</span>
+$ curl http://localhost:8083/connector-plugins
+  <span style="color:#f92672">[</span>
+      <span style="color:#f92672">{</span>
+          <span style="color:#e6db74">&#34;class&#34;</span>:<span style="color:#e6db74">&#34;org.apache.kafka.connect.file.FileStreamSinkConnector&#34;</span>,
+          <span style="color:#e6db74">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;sink&#34;</span>,
+          <span style="color:#e6db74">&#34;version&#34;</span>:<span style="color:#e6db74">&#34;2.5.0&#34;</span>
+      <span style="color:#f92672">}</span>,
+      <span style="color:#f92672">{</span>
+          <span style="color:#e6db74">&#34;class&#34;</span>:<span style="color:#e6db74">&#34;org.apache.kafka.connect.file.FileStreamSourceConnector&#34;</span>,
+          <span style="color:#e6db74">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;source&#34;</span>,
+          <span style="color:#e6db74">&#34;version&#34;</span>:<span style="color:#e6db74">&#34;2.5.0&#34;</span>
+      <span style="color:#f92672">}</span>,
+      ...
+  <span style="color:#f92672">]</span>
+
+#
+<span style="color:#75715e"># 查看 Topic 变化</span>
+$ ./bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+connect-configs
+connect-offsets
+connect-status
+...
+
+#
+<span style="color:#75715e"># 查看配置信息</span>
+$ ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic connect-configs --from-beginning
+</code></pre></div><h2 id="kafka-connect-uidocker">Kafka Connect UI（Docker）</h2>
+<blockquote>
+<ul>
+<li>
+  <a href="https://github.com/lensesio/kafka-connect-ui">lensesio/kafka-connect-ui: Web tool for Kafka Connect | (github.com)</a></li>
+</ul>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"># 
+$ KAFKA_CONNECT_IP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ifconfig | grep inet | grep -v 127.0.0.1 | grep -v 0.0.0.0 | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span>
+
+$ docker run -d -p 8000:8000 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e <span style="color:#e6db74">&#34;CONNECT_URL=http://</span><span style="color:#e6db74">${</span>KAFKA_CONNECT_IP<span style="color:#e6db74">}</span><span style="color:#e6db74">:8083&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --name kafka-connect-ui <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    harbor.ttpai.cn/dev_learn/kafka-connect-ui:0.9.7
+</code></pre></div><h2 id="demofilestreamsourceconnector">【Demo】FileStreamSourceConnector</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 创建一个 读取本地文件的 Connect</span>
+$ curl -X POST http://localhost:8083/connectors <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span><span style="color:#e6db74">  &#34;name&#34;: &#34;FileStreamSourceConnector&#34;,
+</span><span style="color:#e6db74">  &#34;config&#34;: {
+</span><span style="color:#e6db74">    &#34;connector.class&#34;: &#34;org.apache.kafka.connect.file.FileStreamSourceConnector&#34;,
+</span><span style="color:#e6db74">    &#34;tasks.max&#34;: &#34;1&#34;,
+</span><span style="color:#e6db74">    &#34;topic&#34;: &#34;connect.file.source.by.kail&#34;,
+</span><span style="color:#e6db74">    &#34;file&#34;: &#34;connects/test-kail/file.source.txt&#34;
+</span><span style="color:#e6db74">  }
+</span><span style="color:#e6db74">}&#39;</span>
+
+#
+#
+<span style="color:#75715e"># 往文件中追加内容</span>
+$ echo <span style="color:#e6db74">&#34;333333&#34;</span> &gt;&gt; connects/test-kail/file.source.txt
+
+#
+#
+<span style="color:#75715e"># 查看 Topic 内容： 可以收到消息</span>
+$ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--topic connect.file.source.by.kail <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--from-beginning
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;schema&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;string&#34;</span>,<span style="color:#e6db74">&#34;optional&#34;</span>:false<span style="color:#f92672">}</span>,<span style="color:#e6db74">&#34;payload&#34;</span>:<span style="color:#e6db74">&#34;333333&#34;</span><span style="color:#f92672">}</span>
+
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="http://kafka.apache.org/25/documentation.html#connect">Apache Kafka Connect</a></li>
+<li></li>
+<li>
+  <a href="https://docs.confluent.io/platform/current/connect/userguide.html">How to use Kafka Connect - Getting Started | Confluent Documentation</a></li>
+<li>
+  <a href="https://docs.confluent.io/platform/current/connect/design.html">Kafka Connect Architecture | Confluent Documentation</a></li>
+</ul>
+</article>
  
       
 
@@ -139,6 +301,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/commit/08cd148d12f20064e14dfbb8012f844f4d9d3ea1" title='Last modified by kaibin.yang | Jun 29, 2021' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 29, 2021</span>
+    </a>
+  </div>
 
 
 
@@ -170,6 +340,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -178,7 +352,31 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#kafka-connect">Kafka Connect</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#部署方式">部署方式</a>
+          <ul>
+            <li><a href="#standalone-mode">Standalone mode</a></li>
+            <li><a href="#distributed-mode">Distributed mode</a></li>
+          </ul>
+        </li>
+        <li><a href="#distributed-模式部署">Distributed 模式部署</a>
+          <ul>
+            <li><a href="#configconnect-distributedproperties">config/connect-distributed.properties</a></li>
+            <li><a href="#启动-kafka-connect">启动 Kafka Connect</a></li>
+            <li><a href="#查看启动结果">查看启动结果</a></li>
+          </ul>
+        </li>
+        <li><a href="#kafka-connect-uidocker">Kafka Connect UI（Docker）</a></li>
+        <li><a href="#demofilestreamsourceconnector">【Demo】FileStreamSourceConnector</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>

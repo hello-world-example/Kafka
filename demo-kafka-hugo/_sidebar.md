@@ -14,5 +14,5 @@ headless: true
 * **Monitor**
   * [JMX 指标]({{< relref "/docs/Monitor/jmx-metrics.md" >}})
   * [UI 管理工具]({{< relref "/docs/Monitor/Ui-Admin.md" >}})
-* **Connect**
+* [Connect..]({{< relref "/docs/Connect/README.md" >}})
 

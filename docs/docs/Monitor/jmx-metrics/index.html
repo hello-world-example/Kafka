@@ -18,7 +18,7 @@
   ActiveControllerCount：即当前处于激活状态的控制器的数量。正常情况下，Controller 所在 Broker 上的这个 JMX 指标值应该是 1，其他 Broker 上的这个值是 0。如果你发现存在多台 Broker 上该值都是 1 的情况，一定要赶快处理，处理方式主要是查看网络连通性。这种情况通常表明集群出现了脑裂。脑裂问题是非常严重的分布式故障，Kafka 目前依托 ZooKeeper 来防止脑裂。但一旦出现脑裂，Kafka 是无法保证正常工作的。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Kafka/docs/Monitor/jmx-metrics/" />
-
+<meta property="article:modified_time" content="2021-06-29T12:00:43+08:00" />
 <title>Jmx Metrics | Kafka</title>
 <link rel="icon" href="/Kafka/favicon.png" type="image/x-icon">
 
@@ -87,7 +87,8 @@ https://github.com/alex-shpak/hugo-book
   <a href="/Kafka/docs/Monitor/Ui-Admin/">UI 管理工具</a></li>
 </ul>
 </li>
-<li><strong>Connect</strong></li>
+<li>
+  <a href="/Kafka/docs/Connect/README/">Connect..</a></li>
 </ul>
 
 
@@ -180,6 +181,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Kafka/commit/08cd148d12f20064e14dfbb8012f844f4d9d3ea1" title='Last modified by kaibin.yang | Jun 29, 2021' target="_blank" rel="noopener">
+      <img src="/Kafka/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jun 29, 2021</span>
+    </a>
+  </div>
 
 
 
